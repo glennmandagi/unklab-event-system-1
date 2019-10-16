@@ -15,3 +15,41 @@ Possible Features
 - Request Foods
 - Validate Kwitansi
 - Get events notification
+
+Entity
+- Students
+    - stu_id (PK)
+    - stu_nim
+    - stu_reg_no
+    - stu_first_name
+    - stu_last_name
+    - stu_religion_id
+    - stu_gender
+    - stu_email
+    - stu_prodi
+    - stu_residence_id
+    - stu_curriculum_code
+- Events
+    - ev_id (PK)
+    - ev_title
+    - ev_desc
+    - ev_date_start
+    - ev_date_end
+    - ev_price
+    - ev_location
+    - ev_capacity
+- Registration
+    - reg_id (PK)
+    - reg_code
+    - reg_time
+    - reg_pay_status
+    - student_id (FK)
+    - event_id (FK)
+- User
+    - user_id (PK)
+    - username
+    - userpass
+    - status
+
+Business Rule
+- One student One Event
