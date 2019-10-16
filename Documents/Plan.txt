@@ -1,0 +1,17 @@
+Event Registration System
+
+Fitur Frontend
+- Mendaftar Event
+- Cetak Kwitansi
+- Lakukan Pembayaran
+
+Fitur Backend
+- Lihat Mahasiswa
+- Manage Events (CRUD)
+
+Possible Features
+- Check absention
+- Login and create password
+- Request Foods
+- Validate Kwitansi
+- Get events notification
