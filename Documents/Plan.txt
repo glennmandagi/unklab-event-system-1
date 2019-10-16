@@ -53,3 +53,4 @@ Entity
 
 Business Rule
 - One student One Event
+- Use Hasing on password
