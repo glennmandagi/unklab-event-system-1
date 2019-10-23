@@ -1,6 +1,6 @@
 <?php
 
-    $user_pass = 'MyYpass123';
+    $user_pass = 'admin';
     echo $user_pass;
 
     echo "<p>&nbsp;</p>";
