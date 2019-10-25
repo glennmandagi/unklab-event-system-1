@@ -1,6 +1,6 @@
 <?php
 
-    $user_pass = 'admin';
+    $user_pass = 'password';
     echo $user_pass;
 
     echo "<p>&nbsp;</p>";

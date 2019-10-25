@@ -14,7 +14,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-  <a class="nav-link" href="index.html">
+  <a class="nav-link" href="../dashboard/view.php">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
 </li>
@@ -34,18 +34,14 @@
     <span>Add Events</span>
   </a>
 </li>
-<li class="nav-item">
-  <a class="nav-link collapsed" href="../../../config/script/events.php?edit" aria-expanded="true" aria-controls="collapseTwo">
-    <i class="fas fa-fw fa-edit"></i>
-    <span>Edit Events</span>
-  </a>
-</li>
+
 <li class="nav-item">
   <a class="nav-link collapsed" href="../../../config/script/events.php?info" aria-expanded="true" aria-controls="collapseTwo">
     <i class="fas fa-fw fa-info"></i>
     <span>Events Info</span>
   </a>
 </li>
+
 
 
 

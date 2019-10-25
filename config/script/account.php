@@ -1,7 +1,7 @@
 <?php
     
     if (isset($_POST['login'])) {
-		$conn = mysqli_connect('localhost', 'root', '', 'ersystem');
+	   $conn = mysqli_connect('localhost', 'root', '', 'ersystem');
     
         $username = mysqli_real_escape_string($conn, $_POST["username"]);  
         $password = mysqli_real_escape_string($conn, $_POST["password"]);  
@@ -19,9 +19,10 @@
                      {  
                           //return true;  
                           session_start();
-                          $_SESSION["username"] = $username;  
+                          $_SESSION['username'] = $username;  
                           $_SESSION["is_logged_in"] = TRUE;
-                          header("location:../../layout/admin/dashboard/dashboard.php");  
+                          
+                          header("location:../../layout/admin/dashboard/view.php");  
                         echo "masuk";
                      }  
                      else  
@@ -47,5 +48,11 @@
                //  header("location:../../index.php");  
            } 
         
-	}
+     }
+     
+     if (isset($_GET['logout'])) {
+          session_destroy();
+          $_SESSION["is_logged_in"] = FALSE;
+          header("location:../../");
+     }
 ?>
