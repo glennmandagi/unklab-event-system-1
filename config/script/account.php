@@ -18,21 +18,33 @@
                      if(password_verify($password, $row["user_pass"]))  
                      {  
                           //return true;  
+                          session_start();
                           $_SESSION["username"] = $username;  
-                          header("location:../../layout/admin/dashboard.php");  
+                          $_SESSION["is_logged_in"] = TRUE;
+                          header("location:../../layout/admin/dashboard/dashboard.php");  
                         echo "masuk";
                      }  
                      else  
                      {  
                           //return false;  
-                          echo '<script>alert("Wrong User Details")</script>';  
+                         //  echo '<script>alert("Wrong User Details")</script>';  
+                         echo '
+                         <script language = "javascript">
+                              window.alert("LOGIN FAILED: Wrong User Details");
+                              window.location.href="../../index.php";
+                         </script>';
                      }  
                 }  
            }  
            else  
            {  
-                echo '<script>alert("Wrong User Details")</script>';  
-                header("location:../../index.php");  
+               echo '
+                <script language = "javascript">
+                    window.alert("LOGIN FAILED: Please try again");
+                    window.location.href="../../index.php";
+                </script>';
+               //  echo '<script>alert("Wrong User Details")</script>';  
+               //  header("location:../../index.php");  
            } 
         
 	}
