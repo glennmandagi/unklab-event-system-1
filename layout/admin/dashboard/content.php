@@ -33,7 +33,7 @@
                   <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo 'Rp.'.$row['ev_price']?></div>
                 </div>
                 <div class="col-auto">
-                  <a href="../../../config/script/events.php?info=<?php echo $row['ev_id'];?>"><i class="fas fa-info fa-2x text-gray-300"></i></a>
+                  <a href="../../../config/script/events.php?info=<?php echo $row['ev_id'];?>" target="_blank"><i class="fas fa-info fa-2x text-gray-300"></i></a>
                   <a href="../../../config/script/events.php?edit=<?php echo $row['ev_id'];?>"><i class="fas fa-edit fa-2x text-gray-300"></i></a>
                   <a href="../../../config/script/events.php?del=<?php echo $row['ev_id'];?>"><i class="fas fa-trash fa-2x text-gray-300"></i></a>
                 </div>

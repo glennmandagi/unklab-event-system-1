@@ -70,7 +70,19 @@ if (isset($_POST['update'])) {
 }
 if (isset($_GET['info'])) {
     $id = $_GET['info'];
-    echo("Event info: " . $id);
+
+    $results = mysqli_query($conn, "SELECT * FROM events WHERE ev_id = '$id'");
+    
+    $row = mysqli_fetch_array($results);
+
+    echo("Event id          : " .'<br>'. $id .'<br>'.'<br>');
+    echo("Event Title       : " .'<br>'. $row['ev_title'] .'<br>'.'<br>');
+    echo("Event Date        : " .'<br>'. $row['ev_date_start'] . " to " . $row['ev_date_end'] .'<br>'.'<br>');
+    echo("Event Price       : " .'<br>'. $row['ev_price'] .'<br>'.'<br>');
+    echo("Event Location    : " .'<br>'. $row['ev_location'] .'<br>'.'<br>');
+    echo("Event Description : " .'<br>'. $row['ev_desc'] .'<br>'.'<br>');
+    
+    
 }
 
 if (isset($_GET['del'])) {

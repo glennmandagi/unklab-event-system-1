@@ -19,7 +19,9 @@
                      {  
                           //return true;  
                           session_start();
-                          $_SESSION['username'] = $username;  
+                          $_SESSION['username'] = $username; 
+
+                          $_SESSION['user_nim'] = $row['student_stu_nim'];  
                           $_SESSION["is_logged_in"] = TRUE;
                           
                           if ($username == 'admin') {
