@@ -16,7 +16,7 @@
 <li class="nav-item active">
   <a class="nav-link" href="../dashboard/view.php">
     <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>Dashboard</span></a>
+    <span>Upcomming Events</span></a>
 </li>
 
 <!-- Divider -->
@@ -31,14 +31,14 @@
 <li class="nav-item">
   <a class="nav-link collapsed" href="../../../config/script/events.php?add" aria-expanded="true" aria-controls="collapseTwo">
     <i class="fas fa-fw fa-plus"></i>
-    <span>Add Events</span>
+    <span>Booked Events</span>
   </a>
 </li>
 
 <li class="nav-item">
   <a class="nav-link collapsed" href="../../../config/script/events.php?info" aria-expanded="true" aria-controls="collapseTwo">
     <i class="fas fa-fw fa-info"></i>
-    <span>Events Info</span>
+    <span>History Events</span>
   </a>
 </li>
 
