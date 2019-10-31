@@ -29,7 +29,7 @@
 
 <!-- Nav Item - Pages Collapse Menu -->
 <li class="nav-item">
-  <a class="nav-link collapsed" href="../booked_events/view.php" aria-expanded="true" aria-controls="collapseTwo">
+  <a class="nav-link collapsed" href="../../../config/script/events.php?add" aria-expanded="true" aria-controls="collapseTwo">
     <i class="fas fa-fw fa-plus"></i>
     <span>Booked Events</span>
   </a>
