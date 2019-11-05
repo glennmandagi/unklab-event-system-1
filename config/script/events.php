@@ -126,7 +126,8 @@ if (isset($_GET['info'])) {
 
 if (isset($_GET['del'])) {
     $id = $_GET['del'];
-    mysqli_query($conn, "DELETE FROM events WHERE ev_id=$id");
+    mysqli_query($conn, "DELETE FROM registrations WHERE events_ev_id='$id'");
+    mysqli_query($conn, "DELETE FROM events WHERE ev_id='$id'");
     echo '
             <script language = "javascript">
                 window.alert("SUCCESS: Event Deleted");
