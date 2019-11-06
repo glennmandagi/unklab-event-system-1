@@ -94,9 +94,14 @@
                     </script>';
                }
                else{
+                    //cari id student
+                    $hasil = mysqli_query($conn, "SELECT * FROM students WHERE stu_nim = '$nim'");
+                    $info = mysqli_fetch_array($hasil);
+                    $id = $info['stu_id'];
+
                     // echo("Hai orang baru");
                     $hashed_pass = password_hash($password, PASSWORD_BCRYPT);
-                    $sql = "INSERT INTO users(user_name, user_pass, student_stu_nim, user_status) VALUES ('$username','$hashed_pass', $nim, TRUE)";
+                    $sql = "INSERT INTO users(user_name, user_pass, students_stu_id, user_status) VALUES ('$username','$hashed_pass', $id, TRUE)";
                     if (mysqli_query($conn, $sql)) {
                          // echo "New record created successfully";
                          echo '
