@@ -20,6 +20,8 @@ if (isset($_GET['register'])) {
 
     $sql = "INSERT INTO registrations(reg_code, reg_time, reg_pay_status, students_stu_id, events_ev_id) VALUES ('$code','$date',FALSE,'$id','$ev_id')";
 
+    
+
     if (mysqli_query($conn, $sql)) {
         // echo "New record created successfully";
         echo '
