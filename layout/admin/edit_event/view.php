@@ -1,7 +1,7 @@
 <?php
   session_start();
   //if session is empty
-  if (!(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] != '')) {
+  if (!isset($_SESSION['is_logged_in'])) {
     echo '
     <script language = "javascript">
         window.alert("NO DIRECT ACCESS: please login first");

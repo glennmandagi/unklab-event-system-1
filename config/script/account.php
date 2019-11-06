@@ -5,7 +5,7 @@
     
         $username = mysqli_real_escape_string($conn, $_POST["username"]);  
         $password = mysqli_real_escape_string($conn, $_POST["password"]);  
-        $query = "SELECT * FROM users WHERE user_name = '$username'";  
+        $query = "SELECT * FROM users WHERE user_name = '$username'";  //add account status
         // $cek_user = "SELECT * FROM user WHERE user_name = $user_name AND user_pass = $user_pass";
         $result = mysqli_query($conn,$query);
     
@@ -61,8 +61,9 @@
      }
      
      if (isset($_GET['logout'])) {
+          session_start();
           session_destroy();
-          $_SESSION["is_logged_in"] = FALSE;
+          // $_SESSION["is_logged_in"] = FALSE;
           header("location:../../");
      }
 
