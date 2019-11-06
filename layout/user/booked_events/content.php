@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-auto">
                   <a href="../../../config/script/events.php?info=<?php echo $row['ev_id'];?>" target="_blank"><i class="fas fa-info fa-2x text-gray-300"></i></a>
-                  <a href="../../../config/script/register.php?register=<?php echo $row['ev_id'];?>"><i class="fas fa-plus fa-2x text-gray-300"></i></a>
+                  <!-- <a href="../../../config/script/register.php?register=<?php echo $row['ev_id'];?>"><i class="fas fa-plus fa-2x text-gray-300"></i></a> -->
                 </div>
               </div>
             </div>
