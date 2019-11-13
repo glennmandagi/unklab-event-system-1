@@ -71,8 +71,6 @@ if (isset($_POST['update'])) {
 if (isset($_GET['info'])) {
     $id = $_GET['info'];
 
-    
-
     //load event to search capacity
     $results = mysqli_query($conn, "SELECT COUNT(students_stu_id) AS num_user FROM registrations WHERE events_ev_id = '$id'");
     $row_regist = mysqli_fetch_array($results);
