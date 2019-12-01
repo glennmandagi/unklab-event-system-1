@@ -1,7 +1,8 @@
   <!-- Topbar -->
 
   <?php
-    echo($_SESSION['user_nim']);
+    //echo($_SESSION['user_nim']);
+    echo($_SESSION['user_id']);
   ?>
   <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 

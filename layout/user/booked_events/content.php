@@ -8,7 +8,7 @@
 
   <?php 
     $conn = mysqli_connect('localhost', 'root', '', 'ersystem');
-    $results = mysqli_query($conn, "SELECT * FROM events"); 
+    $results = mysqli_query($conn, "SELECT * FROM registrations LEFT JOIN events on registrations.events_ev_id = events.ev_id WHERE students_stu_id = '$_SESSION[user_id]'"); 
   ?>
 
   <!-- Begin Page Content -->
@@ -32,7 +32,7 @@
                   <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo 'Rp.'.$row['ev_price']?></div>
                 </div>
                 <div class="col-auto">
-                  <a href="../../../config/script/events.php?info=<?php echo $row['ev_id'];?>" target="_blank"><i class="fas fa-info fa-2x text-gray-300"></i></a>
+                  <a href="../../../config/script/events.php?print=<?php echo $row['reg_id'];?>" target="_blank"><i class="fas fa-print fa-2x text-gray-300"></i></a>
                   <!-- <a href="../../../config/script/register.php?register=<?php echo $row['ev_id'];?>"><i class="fas fa-plus fa-2x text-gray-300"></i></a> -->
                 </div>
               </div>

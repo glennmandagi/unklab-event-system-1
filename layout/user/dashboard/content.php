@@ -1,3 +1,7 @@
+<style>
+  #popUp{display:none;}
+</style>
+
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
 
@@ -32,10 +36,23 @@
                   <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo 'Rp.'.$row['ev_price']?></div>
                 </div>
                 <div class="col-auto">
-                  <a href="../../../config/script/events.php?info=<?php echo $row['ev_id'];?>" target="_blank"><i class="fas fa-info fa-2x text-gray-300"></i></a>
+                  <!-- <a href="#" onclick="document.getElementById('popUp').style.display='block'"><i class="fas fa-info fa-2x text-gray-300"></i></a> -->
+                  <!-- <i class="fas fa-info fa-2x text-gray-300" onclick="document.getElementById('popUp').style.display='block'"></i> -->
                   <a href="../../../config/script/register.php?register=<?php echo $row['ev_id'];?>" target="_blank"><i class="fas fa-plus fa-2x text-gray-300"></i></a>
                 </div>
               </div>
+              
+              <!-- Pop Up Start -->
+              <!-- <div id = "popUp"> -->
+              <hr>
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Date</div>
+                <div class="text-xs text-primary mb-1"><?php echo($row['ev_date_start'] . " to " . $row['ev_date_end']);?></div>
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Description</div>
+                <div class="text-xs text-primary mb-1"><?php echo($row['ev_desc']);?></div>
+                <!-- <button onclick = "document.getElementById('popUp').style.display='none'">hide</button> -->
+              <!-- </div> -->
+              <!-- Pop Up End -->
+            
             </div>
           </div>
         </div>

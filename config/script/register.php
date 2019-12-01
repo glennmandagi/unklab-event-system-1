@@ -11,13 +11,20 @@ if (isset($_GET['register'])) {
     // $row = mysqli_fetch_array($results);
 
     // header("location:../../layout/admin/edit_event/view.php?id=".$id);
-    echo("Event: ". $ev_id);
+    //echo("Event: ". $ev_id);
     // echo("User : ". $row['stu_id']);
     // $id = $row['stu_id'];
-    echo("User: " . $user_id);
+    //echo("User: " . $user_id);
 
     $code = generate_code($user_id, $ev_id);
     $date = date("Y-m-d H:i:s"); //mysql date format
+
+    $query = "SELECT * FROM registrations";
+
+    $results = mysqli_query($conn, $query);
+
+    //tambah cek barang dulu
+    //$sql = "SELECT "
 
     $sql = "INSERT INTO registrations(reg_code, reg_time, reg_pay_status, students_stu_id, events_ev_id) VALUES ('$code','$date',FALSE,'$user_id','$ev_id')";
 
@@ -25,50 +32,43 @@ if (isset($_GET['register'])) {
 
     if (mysqli_query($conn, $sql)) {
         // echo "New record created successfully";
-        midtrans($code);    
+        midtrans($code, $ev_id, $user_id, $date);    
         // header("location:../../layout/admin/add_event/add.php");  
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
 
-function midtrans($code){
+function midtrans($code, $ev_id, $user_id){
 
     $conn = mysqli_connect('localhost', 'root', '', 'ersystem');
 
     // $test = mysqli_query($conn, "SELECT reg_code AS code, reg_time AS time, students_stu_id AS stu_id, events_stu_id AS ev_id FROM registrations WHERE reg_code = '$code'");
-    $results = mysqli_query($conn, "SELECT * FROM registrations WHERE reg_code = '$code'");
-    $row_trans = mysqli_fetch_array($results);
+    $results = mysqli_query($conn, "SELECT * FROM events WHERE ev_id = '$ev_id'");
+    $row_event = mysqli_fetch_array($results);
+    $price = $row_event['ev_price'];
+    $ev_name = $row_event['ev_title'];
 
-    // print_r($row_trans);
+    $results = mysqli_query($conn, "SELECT * FROM students WHERE stu_id = '$user_id'");
+    $row_user = mysqli_fetch_array($results);
 
-    $time = $row_trans['reg_time'];
-    $stu_id = $row_trans['students_stu_id'];
-    $ev_id = $row_trans['events_ev_id'];
+    $arr = array();
 
-    echo($ev_id);
-    echo($stu_id);
-    echo($code);
+    $arr['code'] = $code;
+    $arr['ev_id'] = $ev_id;
+    $arr['user_id'] = $user_id;
+    $arr['ev_price'] = $price;
+    $arr['ev_title'] = $ev_name;
+    $arr['f_name'] = $row_user['stu_first_name'];
+    $arr['l_name'] = $row_user['stu_last_name'];
+    $arr['email'] = $row_user['stu_email'];
 
-    // $results = mysqli_query($conn, "SELECT * FROM events WHERE ev_id = '$ev_id'");
-    // $row_event = mysqli_fetch_array($results);
+    // session_start();
+    $_SESSION['array'] = $arr;
 
-    // echo("Event id          : " .'<br>'. $ev_id .'<br>'.'<br>');
-    // echo("Event Title       : " .'<br>'. $row_event['ev_title'] .'<br>'.'<br>');
-    // echo("Event Date        : " .'<br>'. $row_event['ev_date_start'] . " to " . $row_event['ev_date_end'] .'<br>'.'<br>');
-    // echo("Event Price       : " .'<br>'. $row_event['ev_price'] .'<br>'.'<br>');
-    // echo("Event Location    : " .'<br>'. $row_event['ev_location'] .'<br>'.'<br>');
-    // echo("Event Description : " .'<br>'. $row_event['ev_desc'] .'<br>'.'<br>');
-    
+    include "../midtrans-php-master/examples/snap/checkout-process-simple-version.php";
 
-    // echo '
-    //         <script language = "javascript">
-    //             window.alert("SUCCESS: Event Saved");
-    //             window.location.href="../../layout/user/dashboard/view.php";
-    //         </script>';
-
-    // <a href="?delete=$code">Delete</a>
-    echo "<a href='?del='" . $code . "'>" . "Del" . "</a>";
+   
 }
 
 function generate_code($id, $ev_id){
